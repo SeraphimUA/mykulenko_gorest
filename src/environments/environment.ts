@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   APIUrl: "https://gorest.co.in/public/v1/",
-  APIToken: "5ab8fd82c7e9de68bf62af5ed4918e4a1a300708c31d189385b5f7c14a50e02c"
+  APIToken: "YourToken"
 };
 
 /*
