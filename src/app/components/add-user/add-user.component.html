@@ -1,57 +1,53 @@
-<div *ngIf="!addMode; else addForm">
-  <button (click)="AddOn()">Add User</button>
+<h3><strong>Add User</strong></h3>
+<div class="item">
+  <form (ngSubmit)="addUser(); addUserForm.reset()" #addUserForm>
+    <div class="item-input">
+      Name<input
+        [(ngModel)]="formData.name"
+        type="text"
+        name="name"
+        #name="ngModel"
+        required
+      />
+    </div>
+    <div class="item-input">
+      Email<input
+        [(ngModel)]="formData.email"
+        type="email"
+        name="email"
+        #email="ngModel"
+        required
+      />
+    </div>
+    <div class="item-input">
+      <input
+        type="radio"
+        id="male"
+        name="gender"
+        value="male"
+        [(ngModel)]="formData.gender"
+        #gender="ngModel"
+        required
+      />
+      <label for="male">Male</label>
+
+      <input
+        type="radio"
+        id="female"
+        name="gender"
+        value="female"
+        [(ngModel)]="formData.gender"
+        #gender="ngModel"
+        required
+      />
+      <label for="female">Female</label>
+    </div>
+    <button
+      [disabled]="name.invalid || email.invalid || gender.invalid"
+      type="submit"
+    >
+      Add User
+    </button>
+    <button (click)="addUserForm.reset()">Reset</button>
+  </form>
 </div>
-
-<ng-template #addForm>
-  <div class="item">
-    <form (ngSubmit)="addUser(); addUserForm.reset()" #addUserForm>
-      <div class="item-input">
-        Name<input
-          [(ngModel)]="formData.name"
-          type="text"
-          name="name"
-          #name="ngModel"
-          required
-        />
-      </div>
-      <div class="item-input">
-        Email<input
-          [(ngModel)]="formData.email"
-          type="email"
-          name="email"
-          #email="ngModel"
-          required
-        />
-      </div>
-      <div class="item-input">
-        <input
-          type="radio"
-          id="male"
-          name="gender"
-          value="male"
-          [(ngModel)]="formData.gender"
-          #gender="ngModel"
-          required
-        />
-        <label for="male">Male</label>
-
-        <input
-          type="radio"
-          id="female"
-          name="gender"
-          value="female"
-          [(ngModel)]="formData.gender"
-          #gender="ngModel"
-          required
-        />
-        <label for="female">Female</label>
-      </div>
-      <button
-        [disabled]="name.invalid || email.invalid || gender.invalid"
-        type="submit"
-      >
-        Add User
-      </button>
-    </form>
-  </div>
-</ng-template>

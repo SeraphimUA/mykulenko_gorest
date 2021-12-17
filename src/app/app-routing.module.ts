@@ -8,7 +8,7 @@ import { UserItemComponent } from "./components/user-item/user-item.component";
 
 const routes: Routes = [
   {
-    path: '', component: UsersComponent
+    path: '', component: UsersComponent, pathMatch: 'full'
   },
   {
     path: 'user/:id', component: UserItemComponent

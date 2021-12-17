@@ -1,6 +1,8 @@
 <div>
     <h3>User Posts</h3>
-    <button (click)="getBack()">Back</button>
+    <nav>
+        <a routerLink="">Users List</a>
+    </nav>
 
     <div *ngIf="this.user.name != '' && this.user.email != ''; else nouser">
         <ul class="item">

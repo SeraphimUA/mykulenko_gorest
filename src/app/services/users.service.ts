@@ -54,13 +54,13 @@ export class UsersService {
     for (let i = 0; i < localStorage.length; i++) {
       let checkValue = localStorage.getItem(`cache_${i + 1}`);
       if (checkValue) {
-        let checkValueJSON = JSON.parse(checkValue);
+        const checkValueJSON = JSON.parse(checkValue);
         let checkPage = checkValueJSON.meta.pagination.page;
         if (page == checkPage) {
-          const decoded = JSON.parse(checkValueJSON!);
+          const storageValueJSON = checkValueJSON;
+          console.log(storageValueJSON);
           console.log('from storage');
-          console.log(decoded);
-          return of(decoded);
+          return of(storageValueJSON);
         }
       }
     }

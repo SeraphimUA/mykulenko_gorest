@@ -1,10 +1,13 @@
 <div>
-    <button (click)="previousPageClick()" [disabled]="!canGoPrevious()">Prev</button>
-    <span><strong>{{page}}</strong></span>
-    <button (click)="nextPageClick()"[disabled]="!canGoNext()">Next</button>
+    <nav>
+        <button (click)="previousPageClick()" [disabled]="!canGoPrevious()">Prev</button>
+        <span style="color: #242424;"><strong>{{page}}</strong></span>
+        <button (click)="nextPageClick()"[disabled]="!canGoNext()">Next</button>
+    </nav>
 
     <app-add-user (add)="addUser($event)"></app-add-user>
-    <h3>{{addResultMessage}}</h3>
+
+    <h3><strong>Users List</strong></h3>
 
     <ul style="list-style-type: none; padding-inline-start: 0;" *ngFor="let user of users">
         <li>
