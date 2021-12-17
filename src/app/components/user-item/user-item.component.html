@@ -1,0 +1,48 @@
+<div>
+    <h3>User Posts</h3>
+    <button (click)="getBack()">Back</button>
+
+    <div *ngIf="this.user.name != '' && this.user.email != ''; else nouser">
+        <ul class="item">
+            <li>
+                <span class="stat">Id: {{user.id}}</span>
+            </li>
+            <li>
+                <span class="stat">name: {{user.name}}</span>
+            </li>
+            <li>
+                <span class="stat">email: {{user.email}}</span>
+            </li>
+            <li>
+                <span class="stat">gender: {{user.gender}}</span>
+            </li>
+            <li>
+                <span class="stat">status: {{user.status}}</span>
+            </li>
+        </ul>
+    
+        <h4>Posts</h4>
+        <div *ngIf="userPosts; else noposts">
+            <ul style="list-style-type: none; padding-inline-start: 0;" *ngFor="let post of userPosts">
+                <li>
+                    <ul class="item">
+                        <li>
+                            <span class="stat"><strong>{{post.title}}</strong></span>
+                        </li>
+                        <li>
+                            <span class="stat">{{post.body}}</span>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <ng-template #noposts>
+        <h5>No posts</h5>
+    </ng-template>
+</div>
+
+<ng-template #nouser>
+    <h4>ID unknown</h4>
+</ng-template>

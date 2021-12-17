@@ -1,0 +1,33 @@
+<div>
+    <button (click)="previousPageClick()" [disabled]="!canGoPrevious()">Prev</button>
+    <span><strong>{{page}}</strong></span>
+    <button (click)="nextPageClick()"[disabled]="!canGoNext()">Next</button>
+
+    <app-add-user (add)="addUser($event)"></app-add-user>
+    <h3>{{addResultMessage}}</h3>
+
+    <ul style="list-style-type: none; padding-inline-start: 0;" *ngFor="let user of users">
+        <li>
+            <ul class="item">
+                <li>
+                    <div class="stat">
+                        <span>id: {{user.id}}</span>
+                        <button (click)="userDetails(user.id)">Details</button>
+                    </div>
+                </li>
+                <li>
+                    <span class="stat">name: {{user.name}}</span>
+                </li>
+                <li>
+                    <span class="stat">email: {{user.email}}</span>
+                </li>
+                <li>
+                    <span class="stat">gender: {{user.gender}}</span>
+                </li>
+                <li>
+                    <span class="stat">status: {{user.status}}</span>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>

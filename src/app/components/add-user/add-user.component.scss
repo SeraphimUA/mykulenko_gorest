@@ -1,0 +1,17 @@
+.item {
+    width: 30em;
+    background-color: #eee;
+    border-radius: 4px;
+    margin: 0.5em;
+    padding: 0.5em;
+  
+    .item-input {
+      display: flex;
+      justify-content: space-between;
+      align-items: 'center';
+      padding: 0.5rem 1rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      margin-bottom: 0.5rem;
+    }
+  }
